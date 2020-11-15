@@ -3,7 +3,7 @@
 const { MessageEmbed } = require("discord.js");
 
 module.exports = {
-  name: "kick",
+  name: "ban",
   execute(client, message, args) {
     const mentionedUser = message.mentions.members.first();
     const reason = args.slice(1).join(" ");
@@ -12,10 +12,10 @@ module.exports = {
 
     const embed = new MessageEmbed({
       author: {
-        name: `[KICK] ${mentionedUser.user.tag}`,
+        name: `[BAN] ${mentionedUser.user.tag}`,
         iconURL: mentionedUser.user.avatarURL(),
       },
-      color: 0xe67e22,
+      color: 0xe74c3c,
       fields: [
         {
           name: "User",
