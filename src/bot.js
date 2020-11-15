@@ -1,5 +1,7 @@
+"use strict";
+
 const { Client } = require("discord.js");
-require("dotenv").config({ path: `${__dirname}/.env`});
+require("dotenv").config({ path: `${__dirname}/.env` });
 
 (async () => {
   const client = new Client();

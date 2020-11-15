@@ -1,7 +1,9 @@
+"use strict"
+
 const { Collection } = require("discord.js");
 const Fs = require("fs");
 
-let events = new Collection();
+const events = new Collection();
 
 const eventFiles = Fs.readdirSync(__dirname).filter(
   (file) => !file.startsWith("index") && file.endsWith(".js")

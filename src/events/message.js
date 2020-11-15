@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = {
   name: "message",
   execute(client, message) {

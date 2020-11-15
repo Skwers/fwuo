@@ -1,7 +1,9 @@
+"use strict";
+
 module.exports = {
   name: "kick",
   execute(client, message, args) {
-    let mentionedUser = message.mentions.members.first();
-    let reason = args.slice(1).join(" ");
+    const mentionedUser = message.mentions.members.first();
+    const reason = args.slice(1).join(" ");
   },
 };
