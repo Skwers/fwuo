@@ -1,7 +1,9 @@
 "use strict";
 
+const path = require("path");
+
 const { ShardingManager } = require("discord.js");
-require("dotenv").config({ path: `${__dirname}/.env` });
+require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 (async () => {
   const manager = new ShardingManager(`${__dirname}/bot.js`, {
