@@ -2,7 +2,7 @@
 
 module.exports = {
   name: "ready",
-  execute(client, message) {
+  execute(client) {
     console.log("The bot is ready");
   },
 };
