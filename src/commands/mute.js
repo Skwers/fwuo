@@ -10,6 +10,8 @@ module.exports = {
 
     // todo
 
+    await mentionedUser.voice.setMute(true, reason);
+
     const embed = new MessageEmbed({
       author: {
         name: `[MUTE] ${mentionedUser.user.tag}`,

@@ -10,6 +10,11 @@ module.exports = {
 
     // todo
 
+    await mentionedUser.ban({
+      days: 7,
+      reason: reason,
+    });
+
     const embed = new MessageEmbed({
       author: {
         name: `[BAN] ${mentionedUser.user.tag}`,

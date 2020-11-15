@@ -10,6 +10,8 @@ module.exports = {
 
     // todo
 
+    await mentionedUser.kick(reason);
+
     const embed = new MessageEmbed({
       author: {
         name: `[KICK] ${mentionedUser.user.tag}`,
