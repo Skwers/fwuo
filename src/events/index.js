@@ -1,7 +1,8 @@
 "use strict"
 
-const { Collection } = require("discord.js");
 const Fs = require("fs");
+
+const { Collection } = require("discord.js");
 
 const events = new Collection();
 
