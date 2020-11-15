@@ -11,8 +11,8 @@ module.exports = {
     try {
       const command = client.commands.get(commandName);
       command.execute(client, message, commandArgs);
-    } catch {
-      console.log("The command is invalid");
+    } catch (error) {
+      console.error(error);
     }
   },
 };
