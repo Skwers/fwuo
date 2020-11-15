@@ -1,0 +1,12 @@
+{
+  "name": "fwuo",
+  "scripts": {
+    "start": "node ./src",
+    "lint": "eslint ./src"
+  },
+  "dependencies": {
+    "discord.js": "^12.4.1",
+    "dotenv": "^8.2.0",
+    "sequelize": "^6.3.5"
+  }
+}
