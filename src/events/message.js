@@ -2,15 +2,15 @@
 
 module.exports = {
   name: "message",
-  execute(client, message) {
+  async execute(client, message) {
     if (!message.content.startsWith("f:") || message.author.bot) return;
 
     const commandArgs = message.content.trim().slice(2).split(" ");
     const commandName = commandArgs.shift().toLowerCase();
 
     try {
-      const command = client.commands.get(commandName);
-      command.execute(client, message, commandArgs);
+      const command = await client.commands.get(commandName);
+      await command.execute(client, message, commandArgs);
     } catch (error) {
       console.error(error);
     }

@@ -4,7 +4,7 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   name: "kick",
-  execute(client, message, args) {
+  async execute(client, message, args) {
     const mentionedUser = message.mentions.members.first();
     const reason = args.slice(1).join(" ");
 
@@ -34,6 +34,6 @@ module.exports = {
       ],
     });
 
-    message.channel.send(embed);
+    await message.channel.send(embed);
   },
 };
