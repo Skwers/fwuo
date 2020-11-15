@@ -6,7 +6,7 @@ const { ShardingManager } = require("discord.js");
 require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 (async () => {
-  const manager = new ShardingManager(`${__dirname}/bot.js`, {
+  const manager = new ShardingManager(path.join(__dirname, "bot.js"), {
     token: process.env.TOKEN,
   });
 

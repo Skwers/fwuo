@@ -6,8 +6,6 @@ const { Client } = require("discord.js");
 require("dotenv").config({ path: path.join(__dirname, ".env") });
 
 (async () => {
-  console.log(path.join(__dirname, ".env"));
-
   const client = new Client();
   client.commands = require("./commands");
   client.events = require("./events");
