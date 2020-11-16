@@ -10,35 +10,40 @@ module.exports = {
 
     // todo
 
-    await mentionedUser.ban({
-      days: 7,
-      reason: reason,
-    });
-
-    const embed = new MessageEmbed({
-      author: {
-        name: `[BAN] ${mentionedUser.user.tag}`,
-        iconURL: mentionedUser.user.avatarURL(),
-      },
-      color: 0xe74c3c,
-      fields: [
-        {
-          name: "User",
-          value: mentionedUser,
-          inline: true,
-        },
-        {
-          name: "Moderator",
-          value: message.author,
-          inline: true,
-        },
-        {
-          name: "Reason",
-          value: reason || "None",
-        },
-      ],
-    });
-
-    await message.channel.send(embed);
+    await mentionedUser
+      .ban({
+        days: 7,
+        reason: reason,
+      })
+      .then(async (member) => {
+        await message.channel.send(
+          new MessageEmbed({
+            author: {
+              name: `[BAN] ${member.user.tag}`,
+              iconURL: member.user.avatarURL(),
+            },
+            color: 0xe74c3c,
+            fields: [
+              {
+                name: "User",
+                value: member,
+                inline: true,
+              },
+              {
+                name: "Moderator",
+                value: message.author,
+                inline: true,
+              },
+              {
+                name: "Reason",
+                value: reason || "None",
+              },
+            ],
+          })
+        );
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   },
 };
