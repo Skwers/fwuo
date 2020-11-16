@@ -2,7 +2,8 @@
 
 module.exports = {
   name: "ready",
-  execute(client) {
+  async execute(client) {
+    await client.database.sync();
     console.log("The bot is ready");
   },
 };
