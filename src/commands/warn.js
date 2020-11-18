@@ -1,6 +1,6 @@
 "use strict";
 
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, User } = require("discord.js");
 
 module.exports = {
   name: "warn",
@@ -8,7 +8,17 @@ module.exports = {
     const mentionedUser = message.mentions.members.first();
     const reason = args.slice(1).join(" ");
 
-    // todo
+    const Offense = await client.database.model("offense");
+    const UserOffense = await client.database.model("user_offense");
+    const offense = await Offense.create({
+      type: "warn",
+      reason: reason,
+    });
+    await UserOffense.create({
+      userId: mentionedUser.id,
+      moderatorId: message.author.id,
+      offenseId: offense.getDataValue("id"),
+    });
 
     const embed = new MessageEmbed({
       author: {
