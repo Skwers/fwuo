@@ -18,7 +18,9 @@ const modelFiles = Fs.readdirSync(
 ).filter((file) => file.endsWith(".js"));
 
 modelFiles.forEach((file) => {
-  require(`./${file}`)(database.sequelize, DataTypes);
+  require(`./models/${file}`)(database, DataTypes);
 });
+
+require("./associations")(database, DataTypes);
 
 module.exports = database;
